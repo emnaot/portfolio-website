@@ -19,11 +19,11 @@ export function Projects() {
       {PROJECTS.map((project, index) => {
         const Icon = project.icon;
         return (
-          <Reveal delay={index * 0.04} key={project.title}>
+          <Reveal key={project.title} delay={index * 0.08} distance={32}>
             <Bracketed className="project">
               <div>
                 <div className="project-icon-badge">
-                  <Icon size={22} />
+                  <Icon size={24} />
                 </div>
                 <span className="project-tag mono">{project.tag}</span>
                 <h3 className="project-title">{project.title}</h3>

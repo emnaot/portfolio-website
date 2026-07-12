@@ -11,28 +11,28 @@ export function Experience() {
           <h2 className="sec-title">Experience, education, and certifications.</h2>
         </div>
       </Reveal>
-      <Reveal delay={0.05}>
-        <div className="timeline">
-          {TIMELINE.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div key={item.role + item.period} className="tl-item">
+      <div className="timeline">
+        {TIMELINE.map((item, index) => {
+          const Icon = item.icon;
+          return (
+            <Reveal key={item.role + item.period} delay={index * 0.08} distance={32}>
+              <div className="tl-item">
                 <div className="tl-period mono">{item.period}</div>
                 <div>
                   <div className="tl-icon">
-                    <Icon size={16} />
+                    <Icon size={18} />
                   </div>
                   <div className="tl-role">{item.role}</div>
                   <div className="tl-org">{item.org}</div>
                   <div className="tl-detail">{item.detail}</div>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      </Reveal>
+            </Reveal>
+          );
+        })}
+      </div>
       <div className="edu-cert-grid">
-        <Reveal delay={0.1}>
+        <Reveal delay={0.16}>
           <div>
             <div className="block-label">Education</div>
             <div className="mini-card-list">
@@ -40,7 +40,7 @@ export function Experience() {
                 const Icon = edu.icon;
                 return (
                   <div className="mini-card" key={edu.title}>
-                    <Icon className="mini-card-icon" size={20} />
+                    <Icon className="mini-card-icon" size={22} />
                     <div>
                       <div className="mini-card-title">{edu.title}</div>
                       <div className="mini-card-sub">
@@ -53,7 +53,7 @@ export function Experience() {
             </div>
           </div>
         </Reveal>
-        <Reveal delay={0.15}>
+        <Reveal delay={0.24}>
           <div>
             <div className="block-label">Certifications</div>
             <div className="mini-card-list">
@@ -61,7 +61,7 @@ export function Experience() {
                 const Icon = cert.icon;
                 return (
                   <div className="mini-card" key={cert.label}>
-                    <Icon className="mini-card-icon" size={20} />
+                    <Icon className="mini-card-icon" size={22} />
                     <div className="mini-card-title">{cert.label}</div>
                   </div>
                 );
@@ -70,15 +70,15 @@ export function Experience() {
           </div>
         </Reveal>
       </div>
-      <Reveal delay={0.2}>
-        <div style={{ marginTop: 40 }}>
+      <Reveal delay={0.32}>
+        <div style={{ marginTop: 48 }}>
           <div className="block-label">Languages</div>
           <div className="skill-tags">
             {LANGUAGES.map((lang) => (
               <span
                 className="skill-tag mono"
                 key={lang.label}
-                style={{ fontSize: 12.5, padding: "6px 12px" }}
+                style={{ fontSize: 13, padding: "6px 14px" }}
               >
                 {lang.label} — {lang.level}
               </span>

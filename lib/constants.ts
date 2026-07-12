@@ -220,9 +220,9 @@ export const STATS = [
 export const CONTACTS = [
   { icon: Mail, label: "emnaothmenn@gmail.com", href: "mailto:emnaothmenn@gmail.com" },
   { icon: Send, label: "+216 25-550-155", href: "tel:+21625550155" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Github, label: "GitHub", href: "#" },
-  { icon: Briefcase, label: "Upwork", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/emna-othmen-121545275/" },
+  { icon: Github, label: "GitHub", href: "https://github.com/emnaot" },
+  { icon: Briefcase, label: "Upwork", href: "https://www.upwork.com/freelancers/~016ab1505c187d59c2?mp_source=share" },
 ];
 
 export const LANGUAGES = [

@@ -15,18 +15,18 @@ export function Skills() {
           </p>
         </div>
       </Reveal>
-      <Reveal delay={0.1}>
+      <Reveal delay={0.08} distance={32}>
         <div className="skill-grid">
-          {SKILL_GROUPS.map((g) => {
-            const Icon = g.icon;
+          {SKILL_GROUPS.map((group, index) => {
+            const Icon = group.icon;
             return (
-              <div className="skill-card" key={g.key}>
+              <div className="skill-card" key={group.key} style={{ animationDelay: `${index * 0.03}s` }}>
                 <div className="skill-icon">
-                  <Icon size={18} />
+                  <Icon size={20} />
                 </div>
-                <div className="skill-title">{g.title}</div>
+                <div className="skill-title">{group.title}</div>
                 <div className="skill-tags">
-                  {g.items.map((item) => (
+                  {group.items.map((item) => (
                     <span className="skill-tag mono" key={item}>
                       {item}
                     </span>

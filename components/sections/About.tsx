@@ -12,7 +12,7 @@ export function About() {
         </div>
       </Reveal>
       <div className="about-grid">
-        <Reveal delay={0.05}>
+        <Reveal delay={0.08} distance={32}>
           <div className="about-text">
             <p>
               I'm a <strong>Full-Stack &amp; AI Engineer</strong> with over two years spent
@@ -36,12 +36,12 @@ export function About() {
             </p>
           </div>
         </Reveal>
-        <Reveal delay={0.15}>
+        <Reveal delay={0.16} distance={32}>
           <div className="about-stats">
-            {STATS.map((s) => (
-              <div className="stat-box" key={s.label}>
-                <div className="stat-value display">{s.value}</div>
-                <div className="stat-label">{s.label}</div>
+            {STATS.map((stat) => (
+              <div className="stat-box" key={stat.label}>
+                <div className="stat-value display">{stat.value}</div>
+                <div className="stat-label">{stat.label}</div>
               </div>
             ))}
           </div>
