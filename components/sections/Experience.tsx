@@ -24,7 +24,13 @@ export function Experience() {
                   </div>
                   <div className="tl-role">{item.role}</div>
                   <div className="tl-org">{item.org}</div>
-                  <div className="tl-detail">{item.detail}</div>
+                  <div className="tl-detail">
+                    <ul style={{ listStyleType: "disc", paddingLeft: "20px", margin: 0 }}>
+                      {item.detail.map((point, idx) => (
+                        <li key={idx} style={{ marginBottom: "8px" }}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </Reveal>
