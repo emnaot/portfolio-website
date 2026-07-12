@@ -335,6 +335,7 @@ html, body{
   content:"";position:absolute;inset:0;
   background:radial-gradient(600px 200px at 80% 0%,var(--cyan-dim),transparent 60%);
   opacity:0;transition:opacity 0.3s ease;
+  pointer-events:none;
 }
 .project:hover{
   border-color:var(--border-strong);transform:translateY(-4px);
