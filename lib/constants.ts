@@ -95,6 +95,7 @@ export const PROJECTS = [
     ],
     stack: ["React", "Ant Design", "NestJS", "PostgreSQL", "Go", "Kafka", "OpenSearch", "Docker Compose", "PKI / mTLS"],
     icon: Radar,
+    youtubeId: "YWNBsZoMcng",
   },
   {
     tag: "AI / TALENT INTELLIGENCE",
@@ -109,6 +110,7 @@ export const PROJECTS = [
     ],
     stack: ["React", ".NET Core", "Azure Cosmos DB", "Azure AI", "Microsoft Graph"],
     icon: Braces,
+    youtubeId: "iz_Qoo0w5eo",
   },
   {
     tag: "SAAS PLATFORM",
@@ -123,6 +125,7 @@ export const PROJECTS = [
     ],
     stack: ["Next.js", "React", "Supabase", "Tailwind CSS"],
     icon: Layers,
+    youtubeId: "uTFDQSRoYm8",
   },
   {
     tag: "SOCIAL",

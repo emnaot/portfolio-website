@@ -29,6 +29,20 @@ export function Projects() {
                 <h3 className="project-title">{project.title}</h3>
                 <div className="project-subtitle">{project.subtitle}</div>
                 <p className="project-desc">{project.description}</p>
+                {project.youtubeId && (
+                  <div className="project-video">
+                    <iframe
+                      width="100%"
+                      height="250"
+                      src={`https://www.youtube.com/embed/${project.youtubeId}`}
+                      title={`Demo for ${project.title}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                )}
               </div>
               <div>
                 <ul className="project-highlights">
