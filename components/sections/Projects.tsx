@@ -29,6 +29,8 @@ export function Projects() {
                 <h3 className="project-title">{project.title}</h3>
                 <div className="project-subtitle">{project.subtitle}</div>
                 <p className="project-desc">{project.description}</p>
+              </div>
+              <div>
                 {project.youtubeId && (
                   <div className="project-video">
                     <iframe
@@ -43,8 +45,6 @@ export function Projects() {
                     ></iframe>
                   </div>
                 )}
-              </div>
-              <div>
                 <ul className="project-highlights">
                   {project.highlights.map((highlight) => (
                     <li key={highlight}>

@@ -19,6 +19,7 @@ import {
   Briefcase,
   MonitorSmartphone,
   Workflow,
+  ShoppingCart,
 } from "lucide-react";
 
 export const NAV = [
@@ -46,7 +47,7 @@ export const SKILL_GROUPS = [
     key: "backend",
     title: "Backend",
     icon: Server,
-    items: ["NestJS", "Express.js", ".NET Core", "Flask", "Laravel", "REST APIs"],
+    items: ["NestJS", "Express.js", ".NET Core", "Flask", "Laravel", "Node.js", "REST APIs", "Stripe"],
   },
   {
     key: "ai",
@@ -83,15 +84,16 @@ export const SKILL_GROUPS = [
 export const PROJECTS = [
   {
     tag: "SECURITY OPERATIONS",
-    title: "SIEM / XDR Cybersecurity Platform",
-    subtitle: "AI-driven threat detection at production scale",
+    title: "SIEM/XDR Cybersecurity Platform with AI Detection System",
+    subtitle: "Real-time threat detection at scale",
     description:
-      "A modular detection-and-response platform for Neoxion Technologies — microservices orchestrated with Docker Compose, a React/Ant Design console for hosts, agents, and alerts, and a self-healing Go agent handling automated deployment in the field.",
+      "Built a scalable SIEM/XDR cybersecurity platform using a microservices architecture for real-time Windows threat detection. Developed backend services with NestJS and a React.js + Ant Design dashboard for alert monitoring, agent management, and analytics. Created a Go-based Windows agent integrating Sysmon/Winlogbeat with secure Kafka (mTLS) communication and self-healing capabilities. Implemented ML-based anomaly detection (Random Cut Forest) and integrated 1500+ Sigma rules mapped to MITRE ATT&CK. Deployed a zero-trust system using internal PKI, mutual TLS, and Docker infrastructure.",
     highlights: [
-      "Kafka Connect streaming security events into OpenSearch, normalized to ECS format for threat detection across 1,500+ Sigma rules",
-      "17 Random Cut Forest anomaly detectors mapped to MITRE ATT&CK techniques for real-time coverage",
-      "Internal PKI on RSA 4096 with mutual TLS securing every service-to-service connection",
-      "Self-healing Go agent (Sysmon/Winlogbeat) using one-time tokens for automated WinRM deployment",
+      "Modular microservices architecture orchestrated with Docker Compose",
+      "Go-based self-healing Windows agent with Sysmon/Winlogbeat integration",
+      "17 Random Cut Forest anomaly detectors mapped to MITRE ATT&CK techniques",
+      "1500+ Sigma rules for threat detection in OpenSearch with ECS normalization",
+      "Internal PKI (RSA 4096) and mutual TLS for zero-trust security",
     ],
     stack: ["React", "Ant Design", "NestJS", "PostgreSQL", "Go", "Kafka", "OpenSearch", "Docker Compose", "PKI / mTLS"],
     icon: Radar,
@@ -100,13 +102,14 @@ export const PROJECTS = [
   {
     tag: "AI / TALENT INTELLIGENCE",
     title: "AI-Powered Web Application for Talent Search and CV Management",
-    subtitle: "AI-driven talent search & CV management",
+    subtitle: "Automated talent management & CV generation",
     description:
-      "Built during an internship at Proged Solutions — a full-stack platform on React and .NET Core with Azure Cosmos DB, designed to turn unstructured CVs into structured, matchable talent data.",
+      "ProfilFlow is a web application developed to automate and optimize talent management. It features a search and selection system, enabling efficient identification of suitable employees for specific missions. I implemented functionalities for comprehensive CV management, automatic updates with new skills and projects, AI-driven generation of professional CVs, and management of user roles and permissions, optimizing resource allocation and ensuring secure access while reducing administrative workload.",
     highlights: [
       "Automated CV data extraction via Azure AI Document Intelligence",
-      "Skills-based employee-project matching system",
-      "Azure Active Directory and Microsoft Graph API integration for secure auth and automated user sync",
+      "AI-powered professional CV generation",
+      "Skills-based employee-project matching algorithm",
+      "Role-based access control system",
     ],
     stack: ["React", ".NET Core", "Azure Cosmos DB", "Azure AI", "Microsoft Graph"],
     icon: Braces,
@@ -114,44 +117,62 @@ export const PROJECTS = [
   },
   {
     tag: "SAAS PLATFORM",
-    title: "Organization & Member Management",
-    subtitle: "Multi-tenant workspace infrastructure",
+    title: "Organization & Member Management Platform",
+    subtitle: "Secure multi-tenant workspace management",
     description:
-      "The invisible backbone that lets a company spin up its own secure workspace — organizations, invitations, roles, and permissions handled cleanly at scale.",
+      "OrgManager is a platform that helps users create and manage organizations, invite members, and control access through clearly defined roles. I built the system to support secure sign-up, joining organizations through invitations, and managing permissions for owners, admins, users, and viewers. The goal was to provide a clean and easy way for teams to organize their members and maintain clear access levels.",
     highlights: [
-      "Multi-tenant architecture isolating data and access per organization",
-      "Invitation and onboarding workflows with granular role management",
-      "Fine-grained, permission-based authorization across every endpoint",
+      "Create and manage multiple organizations",
+      "Invite members via email with secure onboarding",
+      "Granular role management (Owner, Admin, User, Viewer)",
+      "Multi-tenant architecture with data isolation",
     ],
     stack: ["Next.js", "React", "Supabase", "Tailwind CSS"],
     icon: Layers,
-    youtubeId: "uTFDQSRoYm8",
   },
   {
     tag: "SOCIAL",
     title: "Interactive Forum Social Platform",
-    subtitle: "Interactive community platform",
+    subtitle: "Engaging community interaction",
     description:
-      "A social space built for conversation — groups, questions, polling, and real-time chat designed to keep communities engaged and connected.",
+      "LifeQs is an interactive social forum that allows users to ask questions, comment, chat privately, join groups, and create polls. I designed and built the platform to deliver a smooth, engaging experience with real-time communication, customizable profiles, and community interaction features. The goal was to create a modern, user-friendly space that encourages participation and connection.",
     highlights: [
-      "Real-time chat and notifications powered by Appwrite's real-time backend",
-      "Group, question, and comment system with live polling",
-      "Modern, responsive interaction model tuned for daily active use",
+      "Real-time chat and notifications powered by Appwrite",
+      "Group creation and management",
+      "Question, comment, and live polling system",
+      "Customizable user profiles",
     ],
     stack: ["React", "TypeScript", "Tailwind CSS", "Appwrite"],
     icon: Network,
+    youtubeId: "uTFDQSRoYm8",
+  },
+  {
+    tag: "E-COMMERCE",
+    title: "Vape Store E-commerce Platform",
+    subtitle: "Modern online shopping experience",
+    description:
+      "Developed an e-commerce platform for a vape store with key features like product filtering, search, add-to-cart, and a secure checkout with Stripe integration. The platform includes image zoom for detailed product views, full CRUD operations for product management, and role-based access for admins and users. JWT token authentication ensures secure access, and the clean, modern UI enhances the shopping experience, making it easy and enjoyable for customers.",
+    highlights: [
+      "Product filtering, search, and image zoom",
+      "Add-to-cart and Stripe checkout integration",
+      "Full CRUD product management for admins",
+      "JWT-based authentication and role-based access control",
+    ],
+    stack: ["React", "Next.js", "Node.js", "Stripe", "MongoDB", "Tailwind CSS", "JWT"],
+    icon: ShoppingCart,
+    youtubeId: "9yBf5LDiSpw",
   },
   {
     tag: "HEALTHCARE",
-    title: "Medical Appointment & Patient Management",
-    subtitle: "Clinical operations, simplified",
+    title: "Medical Appointment and Patient Management System",
+    subtitle: "Streamlined clinical operations",
     description:
-      "Built at King Digital YC — a Laravel (MVC) application covering the full patient journey, from online booking to staff scheduling, with access strictly scoped by role.",
+      "The web application was developed to simplify medical appointment booking and patient record management for healthcare facilities. Patients can book and confirm appointments online, while administrators have tools to manage appointments comprehensively. The system handles patient information, consultations, and prescriptions. A calendar view enhances the scheduling process, and user role management ensures secure access. My contributions improved operational efficiency and streamlined patient care coordination.",
     highlights: [
-      "Online booking system with a staff calendar view for scheduling and consultations",
-      "Patient record and prescription handling with strict data boundaries",
-      "Role-based access control separating patients, medical staff, and administrators",
-      "Analytics dashboard surfacing appointment and patient activity",
+      "Online appointment booking and confirmation for patients",
+      "Staff calendar view for scheduling and consultations",
+      "Patient record, consultation, and prescription management",
+      "Role-based access control for patients and medical staff",
     ],
     stack: ["Laravel", "PHP", "MySQL", "Bootstrap", "RBAC"],
     icon: Activity,
@@ -162,33 +183,33 @@ export const TIMELINE = [
   {
     period: "Nov 2025 — May 2026",
     role: "Full-Stack & Cybersecurity Engineer Intern",
-    org: "Neoxion Technologies · Remote, Tunisia",
+    org: "Remote, Tunisia",
     detail:
-      "Architected a modular SIEM/XDR platform on Docker Compose microservices, secured with an internal PKI and mutual TLS. Built the React/Ant Design + NestJS/PostgreSQL console for host, agent, and alert management, and configured Kafka Connect pipelines feeding OpenSearch across 1,500+ Sigma rules and 17 MITRE ATT&CK-mapped anomaly detectors.",
+      "Worked on the development of a scalable SIEM/XDR security platform using a microservices architecture for real-time Windows threat detection and monitoring. Built backend services using NestJS and developed a full React.js + Ant Design frontend including dashboards, alert management, agent monitoring, and detection systems. Developed a Windows agent in Go integrating Sysmon and Winlogbeat with secure Kafka communication (mTLS) and self-healing mechanisms. Implemented machine learning-based anomaly detection (Random Cut Forest) and integrated 1500+ Sigma rules into OpenSearch for MITRE ATT&CK threat detection. Designed and deployed a zero-trust security architecture using internal PKI, mutual TLS, and Docker-based infrastructure for scalable deployment.",
     icon: Shield,
   },
   {
     period: "Jan 2025 — Dec 2025",
     role: "Freelance Full-Stack Engineer",
-    org: "Upwork · Remote, United States (part-time, parallel)",
+    org: "Remote, United States (part-time, parallel)",
     detail:
-      "Delivered scalable production applications in React.js, Next.js, and TypeScript for clients on Upwork. Designed reusable, accessible frontend architectures and built secure backend APIs with authentication and third-party integrations end to end.",
+      "Developed and delivered scalable full-stack web applications for clients using React.js, Next.js, and TypeScript. Built modern frontend architectures with reusable components, responsive UI, and optimized performance using Tailwind CSS. Developed secure backend APIs and integrated third-party services to support dynamic and data-driven applications. Implemented authentication systems, session management, and API integrations for production-ready web applications. Collaborated directly with clients to define requirements, improve system design, and deliver maintainable solutions.",
     icon: Briefcase,
   },
   {
     period: "Feb 2024 — May 2024",
     role: "Full-Stack & AI Engineer Intern",
-    org: "Proged Solutions · Hybrid, Tunisia",
+    org: "Hybrid, Tunisia",
     detail:
-      "Built a React.js + .NET Core application on Azure Cosmos DB, integrated Azure Active Directory and Microsoft Graph for secure auth and user sync, and shipped AI-powered CV data extraction via Azure AI Document Intelligence plus a skills-based employee-project matching system.",
+      "Developed a full-stack web application using React.js for the frontend and .NET for the backend, with Azure Cosmos DB for data storage. Integrated Azure Active Directory for secure authentication and Microsoft Graph API for user synchronization. Implemented Azure AI Document Intelligence to automatically extract and structure CV data from PDFs. Automated CV updates using Power Automate workflows triggered by Azure DevOps project changes. Built a role-based access control system and an AI-powered matching algorithm to identify suitable collaborators for specific missions based on extracted skills and project experience.",
     icon: Cpu,
   },
   {
     period: "Jul 2023 — Aug 2023",
     role: "Full-Stack Engineer Intern",
-    org: "King Digital YC · On-site, Tunisia",
+    org: "On-site, Tunisia",
     detail:
-      "Developed a Laravel (MVC) + MySQL medical management application handling patient records and appointments, with authentication, role-based access control, an online booking system, staff calendar, and analytics dashboard.",
+      "Developed a full-stack medical management web application using Laravel PHP framework with MVC architecture for the backend and HTML5, CSS, and JavaScript for the frontend. Implemented user authentication and authorization systems for patients and medical staff. Designed and managed the MySQL database using phpMyAdmin to handle patient records, appointments, consultations, and prescriptions. Created interactive features including online appointment booking, calendar view for medical staff, and dynamic dashboard with statistics. Built responsive interfaces for both patients and medical staff with dedicated modules for managing appointments, medical records, and prescriptions.",
     icon: Code2,
   },
 ];
@@ -215,8 +236,8 @@ export const CERTS = [
 
 export const STATS = [
   { value: "2+", label: "Years building production software" },
-  { value: "5", label: "Full-scale systems shipped end to end" },
-  { value: "3", label: "Domains — AI, security, cloud infra" },
+  { value: "6", label: "Full-scale systems shipped end to end" },
+  { value: "4", label: "Domains — AI, security, e-commerce, cloud" },
   { value: "4", label: "Internships & engagements across industries" },
 ];
 
