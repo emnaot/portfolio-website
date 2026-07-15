@@ -1,33 +1,24 @@
 import { Reveal } from "@/components/Reveal";
 import { Eyebrow } from "@/components/Eyebrow";
 import { STATS } from "@/lib/constants";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 export function About() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="about">
       <Reveal>
-        <Eyebrow>01 — About</Eyebrow>
+        <Eyebrow>{t('about.eyebrow')}</Eyebrow>
         <div className="sec-head">
-          <h2 className="sec-title">Building end-to-end solutions across domains.</h2>
+          <h2 className="sec-title">{t('about.title')}</h2>
         </div>
       </Reveal>
       <div className="about-grid">
         <Reveal delay={0.08} distance={32}>
           <div className="about-text">
-            <p>
-              I'm a <strong>Full-Stack &amp; AI Engineer</strong> with over two years of experience
-              building production-grade software across various domains — from cybersecurity platforms
-              and AI-driven tools to e-commerce solutions, social platforms, and medical management systems.
-            </p>
-            <p>
-              My expertise spans <strong>full-stack web development</strong>, <strong>applied AI &amp; machine learning</strong>,
-              <strong> secure backend architecture</strong>, and <strong>cloud infrastructure</strong>. I love turning complex problems
-              into simple, scalable, and user-friendly solutions.
-            </p>
-            <p>
-              I work end to end — from designing data models and APIs to building responsive, modern interfaces
-              — and I always prioritize clean code, performance, and security in everything I build.
-            </p>
+            <p>{t('about.p1')}</p>
+            <p>{t('about.p2')}</p>
+            <p>{t('about.p3')}</p>
           </div>
         </Reveal>
         <Reveal delay={0.16} distance={32}>

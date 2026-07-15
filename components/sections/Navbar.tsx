@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { Terminal, Menu, X } from "lucide-react";
 import { NAV } from "@/lib/constants";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 interface NavbarProps {
   onNavClick: (id: string) => void;
@@ -11,6 +13,7 @@ interface NavbarProps {
 export function Navbar({ onNavClick }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -34,12 +37,13 @@ export function Navbar({ onNavClick }: NavbarProps) {
               className="nav-link"
               onClick={() => onNavClick(n.id)}
             >
-              {n.label}
+              {t(`nav.${n.id}`)}
             </button>
           ))}
         </div>
+        <LanguageSwitcher />
         <button className="nav-cta" onClick={() => onNavClick("contact")}>
-          Get in touch
+          {language === 'en' ? "Get in touch" : "Contactez-moi"}
         </button>
         <button
           className="menu-btn"
@@ -67,7 +71,7 @@ export function Navbar({ onNavClick }: NavbarProps) {
                 onNavClick(n.id);
               }}
             >
-              {n.label}
+              {t(`nav.${n.id}`)}
             </button>
           ))}
         </div>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { LanguageProvider } from "./contexts/LanguageContext";
+import { ClientLayout } from "./ClientLayout";
 
 export const metadata: Metadata = {
   title: "Emna Othmen — Full-Stack & AI Engineer",
@@ -12,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <LanguageProvider>
+      <ClientLayout>{children}</ClientLayout>
+    </LanguageProvider>
   );
 }

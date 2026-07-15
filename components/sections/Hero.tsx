@@ -4,14 +4,17 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { useTypewriter } from "@/hooks/useTypewriter";
 import { HeroBackground } from "./HeroBackground";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 interface HeroProps {
   onCTAClick: (id: string) => void;
 }
 
 export function Hero({ onCTAClick }: HeroProps) {
+  const { language, t } = useLanguage();
+  const roleTypes = t('hero.roleTypes');
   const roleText = useTypewriter(
-    ["AI SYSTEMS", "SECURE INFRASTRUCTURE", "CLOUD PLATFORMS", "MODERN WEB APPS"],
+    roleTypes as string[],
     60,
     1500
   );
@@ -32,7 +35,7 @@ export function Hero({ onCTAClick }: HeroProps) {
           transition={{ duration: 0.7, ease: [0.2, 0.7, 0.2, 1], delay: 0.2 }}
         >
           <span className="pulse-dot" />
-          AVAILABLE FOR NEW ENGAGEMENTS
+          {t('hero.status')}
         </motion.div>
         <motion.h1
           className="hero-name"
@@ -48,7 +51,7 @@ export function Hero({ onCTAClick }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.2, 0.7, 0.2, 1], delay: 0.6 }}
         >
-          BUILDING {roleText}
+          {language === 'en' ? 'BUILDING' : 'CONSTRUIRE'} {roleText}
           <span className="cursor" />
         </motion.div>
         <motion.p
@@ -57,9 +60,7 @@ export function Hero({ onCTAClick }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.2, 0.7, 0.2, 1], delay: 0.8 }}
         >
-          Full-Stack &amp; AI Engineer designing production-grade software — from
-          secure backend systems to AI-assisted applications and modern,
-          resilient web platforms.
+          {t('hero.subtitle')}
         </motion.p>
         <motion.div
           className="hero-actions"
@@ -71,13 +72,13 @@ export function Hero({ onCTAClick }: HeroProps) {
             className="btn-accent-outline"
             onClick={() => onCTAClick("work")}
           >
-            View the work <ArrowRight size={17} />
+            {t('hero.cta1')} <ArrowRight size={17} />
           </button>
           <button
             className="btn-secondary"
             onClick={() => onCTAClick("contact")}
           >
-            Start a conversation
+            {t('hero.cta2')}
           </button>
         </motion.div>
         <motion.div
@@ -87,24 +88,24 @@ export function Hero({ onCTAClick }: HeroProps) {
           transition={{ duration: 0.7, ease: [0.2, 0.7, 0.2, 1], delay: 1.2 }}
         >
           <div className="hero-meta-item">
-            <div className="hero-meta-value">AI / ML</div>
-            <div className="hero-meta-label">Detection systems &amp; intelligent tooling</div>
+            <div className="hero-meta-value">{t('hero.meta.ai.value')}</div>
+            <div className="hero-meta-label">{t('hero.meta.ai.label')}</div>
           </div>
           <div className="hero-meta-item">
-            <div className="hero-meta-value">SECURITY</div>
-            <div className="hero-meta-label">SIEM/XDR, PKI, zero-trust architecture</div>
+            <div className="hero-meta-value">{t('hero.meta.security.value')}</div>
+            <div className="hero-meta-label">{t('hero.meta.security.label')}</div>
           </div>
           <div className="hero-meta-item">
-            <div className="hero-meta-value">CLOUD</div>
-            <div className="hero-meta-label">Containerized, scalable infrastructure</div>
+            <div className="hero-meta-value">{t('hero.meta.cloud.value')}</div>
+            <div className="hero-meta-label">{t('hero.meta.cloud.label')}</div>
           </div>
           <div className="hero-meta-item">
-            <div className="hero-meta-value">WEB</div>
-            <div className="hero-meta-label">Modern, accessible product engineering</div>
+            <div className="hero-meta-value">{t('hero.meta.web.value')}</div>
+            <div className="hero-meta-label">{t('hero.meta.web.label')}</div>
           </div>
           <div className="hero-meta-item">
-            <div className="hero-meta-value">BASE</div>
-            <div className="hero-meta-label">Sfax, Tunisia — open to remote &amp; relocation</div>
+            <div className="hero-meta-value">{t('hero.meta.base.value')}</div>
+            <div className="hero-meta-label">{t('hero.meta.base.label')}</div>
           </div>
         </motion.div>
       </div>

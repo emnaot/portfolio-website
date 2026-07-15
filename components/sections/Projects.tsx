@@ -2,21 +2,25 @@ import { Reveal } from "@/components/Reveal";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Bracketed } from "@/components/Bracketed";
 import { PROJECTS } from "@/lib/constants";
+import { useState } from "react";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 export function Projects() {
+  const { t } = useLanguage();
+  const [showAll, setShowAll] = useState(false);
+  const initialProjectsToShow = 2;
+  const visibleProjects = showAll ? PROJECTS : PROJECTS.slice(0, initialProjectsToShow);
+  
   return (
     <section className="section" id="work">
       <Reveal>
-        <Eyebrow>03 — Featured Work</Eyebrow>
+        <Eyebrow>{t('work.eyebrow')}</Eyebrow>
         <div className="sec-head">
-          <h2 className="sec-title">Five systems. Five domains. One engineering standard.</h2>
-          <p className="sec-desc">
-            Each project shipped as a complete product — architecture, security,
-            and interface treated as one problem, not three.
-          </p>
+          <h2 className="sec-title">{t('work.title')}</h2>
+          <p className="sec-desc">{t('work.desc')}</p>
         </div>
       </Reveal>
-      {PROJECTS.map((project, index) => {
+      {visibleProjects.map((project, index) => {
         const Icon = project.icon;
         return (
           <Reveal key={project.title} delay={index * 0.08} distance={32}>
@@ -65,6 +69,16 @@ export function Projects() {
           </Reveal>
         );
       })}
+      {PROJECTS.length > initialProjectsToShow && (
+        <div style={{ textAlign: "center", marginTop: "32px" }}>
+          <button
+            className="btn-accent-outline"
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? t('work.showLess') : t('work.showMore')}
+          </button>
+        </div>
+      )}
     </section>
   );
 }

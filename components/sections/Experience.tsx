@@ -1,14 +1,16 @@
 import { Reveal } from "@/components/Reveal";
 import { Eyebrow } from "@/components/Eyebrow";
 import { TIMELINE, EDUCATION, CERTS, LANGUAGES } from "@/lib/constants";
+import { useLanguage } from "@/app/contexts/LanguageContext";
 
 export function Experience() {
+  const { t } = useLanguage();
   return (
     <section className="section" id="experience">
       <Reveal>
-        <Eyebrow>04 — Path</Eyebrow>
+        <Eyebrow>{t('experience.eyebrow')}</Eyebrow>
         <div className="sec-head">
-          <h2 className="sec-title">Experience, education, and certifications.</h2>
+          <h2 className="sec-title">{t('experience.title')}</h2>
         </div>
       </Reveal>
       <div className="timeline">
@@ -40,7 +42,7 @@ export function Experience() {
       <div className="edu-cert-grid">
         <Reveal delay={0.16}>
           <div>
-            <div className="block-label">Education</div>
+            <div className="block-label">{t('experience.education')}</div>
             <div className="mini-card-list">
               {EDUCATION.map((edu) => {
                 const Icon = edu.icon;
@@ -61,7 +63,7 @@ export function Experience() {
         </Reveal>
         <Reveal delay={0.24}>
           <div>
-            <div className="block-label">Certifications</div>
+            <div className="block-label">{t('experience.certifications')}</div>
             <div className="mini-card-list">
               {CERTS.map((cert) => {
                 const Icon = cert.icon;
@@ -78,7 +80,7 @@ export function Experience() {
       </div>
       <Reveal delay={0.32}>
         <div style={{ marginTop: 48 }}>
-          <div className="block-label">Languages</div>
+          <div className="block-label">{t('experience.languages')}</div>
           <div className="skill-tags">
             {LANGUAGES.map((lang) => (
               <span

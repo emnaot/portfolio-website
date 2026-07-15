@@ -111,7 +111,7 @@ export const PROJECTS = [
       "Skills-based employee-project matching algorithm",
       "Role-based access control system",
     ],
-    stack: ["React", ".NET Core", "Azure Cosmos DB", "Azure AI", "Microsoft Graph"],
+    stack: ["React", ".NET Core", "Azure Cosmos DB", "Azure AI", "Microsoft Graph", "Azure Document Intelligence", "Azure Active Directory", "Azure Power Automate"],
     icon: Braces,
     youtubeId: "iz_Qoo0w5eo",
   },

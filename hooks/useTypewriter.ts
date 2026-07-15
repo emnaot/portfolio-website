@@ -5,6 +5,13 @@ export function useTypewriter(words: string[], speed = 55, pause = 1400) {
   const [wordIndex, setWordIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
 
+  // Reset when words change
+  useEffect(() => {
+    setText("");
+    setWordIndex(0);
+    setDeleting(false);
+  }, [words]);
+
   useEffect(() => {
     const current = words[wordIndex % words.length];
     let timeout: NodeJS.Timeout;
