@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/Reveal";
 import { Eyebrow } from "@/components/Eyebrow";
 import { Bracketed } from "@/components/Bracketed";
-import { PROJECTS } from "@/lib/constants";
+import { PROJECTS_METADATA } from "@/lib/constants";
 import { useState } from "react";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 
@@ -9,7 +9,8 @@ export function Projects() {
   const { t } = useLanguage();
   const [showAll, setShowAll] = useState(false);
   const initialProjectsToShow = 2;
-  const visibleProjects = showAll ? PROJECTS : PROJECTS.slice(0, initialProjectsToShow);
+  const translatedProjects = t('work.projects');
+  const visibleProjects = showAll ? translatedProjects : translatedProjects.slice(0, initialProjectsToShow);
   
   return (
     <section className="section" id="work">
@@ -20,8 +21,9 @@ export function Projects() {
           <p className="sec-desc">{t('work.desc')}</p>
         </div>
       </Reveal>
-      {visibleProjects.map((project, index) => {
-        const Icon = project.icon;
+      {visibleProjects.map((project: { tag: string; title: string; subtitle: string; description: string; highlights: string[] }, index: number) => {
+        const metadata = PROJECTS_METADATA[index];
+        const Icon = metadata.icon;
         return (
           <Reveal key={project.title} delay={index * 0.08} distance={32}>
             <Bracketed className="project">
@@ -35,12 +37,12 @@ export function Projects() {
                 <p className="project-desc">{project.description}</p>
               </div>
               <div>
-                {project.youtubeId && (
+                {metadata.youtubeId && (
                   <div className="project-video">
                     <iframe
                       width="100%"
                       height="250"
-                      src={`https://www.youtube.com/embed/${project.youtubeId}`}
+                      src={`https://www.youtube.com/embed/${metadata.youtubeId}`}
                       title={`Demo for ${project.title}`}
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -50,15 +52,15 @@ export function Projects() {
                   </div>
                 )}
                 <ul className="project-highlights">
-                  {project.highlights.map((highlight) => (
-                    <li key={highlight}>
+                  {project.highlights.map((highlight, idx: number) => (
+                    <li key={idx}>
                       <span className="hl-bullet" />
                       {highlight}
                     </li>
                   ))}
                 </ul>
                 <div className="project-stack">
-                  {project.stack.map((tech) => (
+                  {metadata.stack.map((tech) => (
                     <span className="stack-chip" key={tech}>
                       {tech}
                     </span>
@@ -69,7 +71,7 @@ export function Projects() {
           </Reveal>
         );
       })}
-      {PROJECTS.length > initialProjectsToShow && (
+      {translatedProjects.length > initialProjectsToShow && (
         <div style={{ textAlign: "center", marginTop: "32px" }}>
           <button
             className="btn-accent-outline"

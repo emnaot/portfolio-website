@@ -1,10 +1,15 @@
 import { Reveal } from "@/components/Reveal";
 import { Eyebrow } from "@/components/Eyebrow";
-import { TIMELINE, EDUCATION, CERTS, LANGUAGES } from "@/lib/constants";
+import { TIMELINE_METADATA, EDUCATION_METADATA, CERTS_METADATA } from "@/lib/constants";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 
 export function Experience() {
   const { t } = useLanguage();
+  const timeline = t('experience.timeline');
+  const educationItems = t('experience.educationItems');
+  const certificationsItems = t('experience.certificationsItems');
+  const languagesItems = t('experience.languagesItems');
+
   return (
     <section className="section" id="experience">
       <Reveal>
@@ -14,8 +19,9 @@ export function Experience() {
         </div>
       </Reveal>
       <div className="timeline">
-        {TIMELINE.map((item, index) => {
-          const Icon = item.icon;
+        {timeline.map((item: { period: string; role: string; org: string; detail: string[] }, index: number) => {
+          const metadata = TIMELINE_METADATA[index];
+          const Icon = metadata.icon;
           return (
             <Reveal key={item.role + item.period} delay={index * 0.08} distance={32}>
               <div className="tl-item">
@@ -28,7 +34,7 @@ export function Experience() {
                   <div className="tl-org">{item.org}</div>
                   <div className="tl-detail">
                     <ul style={{ listStyleType: "disc", paddingLeft: "20px", margin: 0 }}>
-                      {item.detail.map((point, idx) => (
+                      {item.detail.map((point, idx: number) => (
                         <li key={idx} style={{ marginBottom: "8px" }}>{point}</li>
                       ))}
                     </ul>
@@ -42,10 +48,11 @@ export function Experience() {
       <div className="edu-cert-grid">
         <Reveal delay={0.16}>
           <div>
-            <div className="block-label">{t('experience.education')}</div>
+            <div className="block-label">{t('experience.educationLabel')}</div>
             <div className="mini-card-list">
-              {EDUCATION.map((edu) => {
-                const Icon = edu.icon;
+              {educationItems.map((edu: { title: string; org: string; period: string }, index: number) => {
+                const metadata = EDUCATION_METADATA[index];
+                const Icon = metadata.icon;
                 return (
                   <div className="mini-card" key={edu.title}>
                     <Icon className="mini-card-icon" size={22} />
@@ -63,10 +70,11 @@ export function Experience() {
         </Reveal>
         <Reveal delay={0.24}>
           <div>
-            <div className="block-label">{t('experience.certifications')}</div>
+            <div className="block-label">{t('experience.certificationsLabel')}</div>
             <div className="mini-card-list">
-              {CERTS.map((cert) => {
-                const Icon = cert.icon;
+              {certificationsItems.map((cert: { label: string }, index: number) => {
+                const metadata = CERTS_METADATA[index];
+                const Icon = metadata.icon;
                 return (
                   <div className="mini-card" key={cert.label}>
                     <Icon className="mini-card-icon" size={22} />
@@ -80,9 +88,9 @@ export function Experience() {
       </div>
       <Reveal delay={0.32}>
         <div style={{ marginTop: 48 }}>
-          <div className="block-label">{t('experience.languages')}</div>
+          <div className="block-label">{t('experience.languagesLabel')}</div>
           <div className="skill-tags">
-            {LANGUAGES.map((lang) => (
+            {languagesItems.map((lang: { label: string; level: string }) => (
               <span
                 className="skill-tag mono"
                 key={lang.label}

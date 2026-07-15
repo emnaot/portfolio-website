@@ -6,6 +6,7 @@ import { useLanguage } from "@/app/contexts/LanguageContext";
 
 export function Contact() {
   const { t } = useLanguage();
+  const translatedContacts = t('contact.contacts');
   return (
     <section className="section" id="contact">
       <Reveal distance={32}>
@@ -17,7 +18,7 @@ export function Contact() {
           />
           <p className="contact-sub">{t('contact.desc')}</p>
           <div className="contact-links">
-            {CONTACTS.map((contact) => {
+            {CONTACTS.map((contact, index: number) => {
               const Icon = contact.icon;
               const isExternal = !contact.href.startsWith('mailto:') && !contact.href.startsWith('tel:');
               return (
@@ -28,7 +29,7 @@ export function Contact() {
                   target={isExternal ? "_blank" : undefined}
                   rel={isExternal ? "noopener noreferrer" : undefined}
                 >
-                  <Icon size={16} /> {contact.label}
+                  <Icon size={16} /> {translatedContacts[contact.label as keyof typeof translatedContacts]}
                 </a>
               );
             })}

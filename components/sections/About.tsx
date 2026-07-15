@@ -1,10 +1,10 @@
 import { Reveal } from "@/components/Reveal";
 import { Eyebrow } from "@/components/Eyebrow";
-import { STATS } from "@/lib/constants";
 import { useLanguage } from "@/app/contexts/LanguageContext";
 
 export function About() {
   const { t } = useLanguage();
+  const stats = t('stats');
   return (
     <section className="section" id="about">
       <Reveal>
@@ -23,7 +23,7 @@ export function About() {
         </Reveal>
         <Reveal delay={0.16} distance={32}>
           <div className="about-stats">
-            {STATS.map((stat) => (
+            {stats.map((stat: { value: string; label: string }, index: number) => (
               <div className="stat-box" key={stat.label}>
                 <div className="stat-value display">{stat.value}</div>
                 <div className="stat-label">{stat.label}</div>
